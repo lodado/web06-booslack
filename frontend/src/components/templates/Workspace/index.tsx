@@ -14,6 +14,7 @@ import {
   channelInfoModalState,
   sidebarChannelInfoModalState,
 } from '@state/modal';
+import { useWorkspaceQuery } from '@hook/useWorkspace';
 import userState from '@state/user';
 import { RowDiv } from './styles';
 
@@ -27,11 +28,10 @@ const WorkspaceTemplate = ({ Content }: Props): JSX.Element => {
   const channelDescriptionModal = useRecoilValue(channelDescriptionModalState);
   const sidebarChannelModal = useRecoilValue(sidebarChannelInfoModalState);
 
-  
-
   const { workspaceId, channelId }: { workspaceId: string; channelId: string } =
     useParams();
   const [user, setUser] = useRecoilState(userState);
+  useWorkspaceQuery(workspaceId);
 
   useEffect(() => {
     const getUserHasWorkspace = async () => {
