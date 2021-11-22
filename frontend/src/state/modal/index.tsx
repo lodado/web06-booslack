@@ -25,6 +25,11 @@ export const LoginModalState = atom({
   default: false,
 });
 
+export const preferenceModalState = atom({
+  key: 'preferenceModal',
+  default: false,
+});
+
 export const codeModalState = atom({
   key: 'codeModal',
   default: {

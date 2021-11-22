@@ -8,10 +8,12 @@ import CreateChannelModal from '@organisms/CreateChannelModal';
 import ChannelInfoModal from '@organisms/ChannelInfoModal';
 import ChannelDescriptionModal from '@organisms/ChannelDescriptionModal';
 import SidebarChannelInfoModal from '@organisms/SidebarChannelInfoModal';
+import PreferenceModal from '@organisms/PreferenceModal';
 import {
   channelCreateModalState,
   channelDescriptionModalState,
   channelInfoModalState,
+  preferenceModalState,
   sidebarChannelInfoModalState,
 } from '@state/modal';
 import { useWorkspaceQuery } from '@hook/useWorkspace';
@@ -27,6 +29,7 @@ const WorkspaceTemplate = ({ Content }: Props): JSX.Element => {
   const channelInfoModal = useRecoilValue(channelInfoModalState);
   const channelDescriptionModal = useRecoilValue(channelDescriptionModalState);
   const sidebarChannelModal = useRecoilValue(sidebarChannelInfoModalState);
+  const preferenceModal = useRecoilValue(preferenceModalState);
 
   const { workspaceId, channelId }: { workspaceId: string; channelId: string } =
     useParams();
@@ -64,6 +67,7 @@ const WorkspaceTemplate = ({ Content }: Props): JSX.Element => {
       {channelInfoModal && <ChannelInfoModal />}
       {channelDescriptionModal && <ChannelDescriptionModal />}
       {sidebarChannelModal && <SidebarChannelInfoModal />}
+      {preferenceModal && <PreferenceModal />}
     </>
   );
 };
